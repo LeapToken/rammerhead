@@ -10,8 +10,8 @@ module.exports = {
     //// HOSTING CONFIGURATION ////
 
     bindingAddress: '0.0.0.0',
-    port: 8080,
-    crossDomainPort: 8081,
+    port: 443,
+    crossDomainPort: 8443,
     publicDir: path.join(__dirname, '../public'), // set to null to disable
 
     // enable or disable multithreading
@@ -25,7 +25,7 @@ module.exports = {
     // this function's return object will determine how the client url rewriting will work.
     // set them differently from bindingAddress and port if rammerhead is being served
     // from a reverse proxy.
-    getServerInfo: (req) => ({ hostname: new URL('https://' + req.headers.host).hostname, port: 8080, crossDomainPort: 8081, protocol: 'https:' }),
+    getServerInfo: (req) => ({ hostname: new URL('https://' + req.headers.host).hostname, port: 443, crossDomainPort: 8443, protocol: 'https:' }),
     // example of non-hard-coding the hostname header
     // getServerInfo: (req) => {
     //     return { hostname: new URL('http://' + req.headers.host).hostname, port: 443, crossDomainPort: 8443, protocol: 'https: };
