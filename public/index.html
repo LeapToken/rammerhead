@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rammerhead Proxy</title>
-  <link rel="icon" type="image/x-icon" href="/images/logo.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <!-- Google Fonts (using Poppins for consistency) -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet" />
@@ -17,18 +17,17 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/style/style.css" />
-  <!-- Removed side_nav.css -->
 
   <!-- Meta Description, Keywords, etc. -->
-  <meta name="description" content="Rammerhead Proxy is a fast and free web proxy by binary-person designed to bypass censorship and access restricted content securely. No sign-up needed. Just search and go!" />
-  <meta name="keywords" content="Rammerhead Proxy, web proxy, free proxy, unblock websites, online proxy, secure browsing, bypass censorship, anonymous browsing" />
+  <meta name="description" content="Rammerhead Proxy is a fast and free web proxy designed to bypass censorship and access restricted content securely. No sign-up needed. Just search and go!" />
+  <meta name="keywords" content="Rammerhead, web proxy, free proxy, unblock websites, online proxy, secure browsing, bypass censorship, anonymous browsing, school proxy, fast proxy" />
   <meta name="author" content="Rammerhead Team" />
   <meta property="og:title" content="Rammerhead Proxy – Free Web Proxy" />
   <meta property="og:description" content="Bypass censorship and browse freely with Rammerhead Proxy. Fast, simple, and secure proxy access — no account required." />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:url" content="https://spectraflux.site" />
+  <meta property="og:url" content="https://rammerhead.proxy" />
 
-  <!-- Adsense & Google Funding -->
+  <!-- Google Adsense and Funding Scripts -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7261666826198019"
      crossorigin="anonymous"></script>
   <script async src="https://fundingchoicesmessages.google.com/i/pub-7261666826198019?ers=1"></script>
@@ -50,9 +49,9 @@
       signalGooglefcPresent();
     })();
   </script>
-  
+
   <style>
-    /* Agreement text styling */
+    /* Additional styling for the agreement text and buttons */
     .agreement-text {
       margin-top: 10px;
       font-size: 0.9rem;
@@ -67,7 +66,6 @@
     .agreement-text a:hover {
       color: #1976d2;
     }
-    /* Container for action buttons */
     .action-buttons {
       display: flex;
       justify-content: center;
@@ -88,7 +86,6 @@
       background-color: #1976d2;
       transform: scale(1.05);
     }
-    /* Warning text styling */
     .warning-text {
       margin-top: 30px;
       font-size: 0.85rem;
@@ -96,7 +93,6 @@
       text-align: center;
       padding: 0 20px;
     }
-    /* Note text styling */
     .note-text {
       margin-top: 20px;
       font-size: 0.85rem;
@@ -105,29 +101,25 @@
       font-style: italic;
       padding: 0 20px;
     }
-    /* Vertical ad styles */
-    .vertical-ad-right {
-      position: fixed;
-      right: 10px;
-      top: 150px;
-      z-index: 1000;
-      max-width: 300px;
-    }
+    .vertical-ad-right,
     .vertical-ad-left {
       position: fixed;
-      left: 10px;
       top: 150px;
       z-index: 1000;
       max-width: 300px;
     }
-    /* Hide vertical ads on small screens */
+    .vertical-ad-right {
+      right: 10px;
+    }
+    .vertical-ad-left {
+      left: 10px;
+    }
     @media screen and (max-width: 768px) {
       .vertical-ad-right,
       .vertical-ad-left {
         display: none;
       }
     }
-    /* Updated Home Button Styles */
     .home-btn {
       position: absolute;
       top: 20px;
@@ -150,26 +142,15 @@
     .home-btn:hover {
       transform: scale(1.1);
     }
-    /* Ensure main content is centered using flexbox */
-    html, body {
+    /* Background dot-wave canvas */
+    #background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Poppins', sans-serif;
-    }
-    /* Content wrapper styling */
-    .content-wrapper {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      max-width: 800px;
-      width: 90%;
-      margin: 20px;
-      position: relative;
-      z-index: 10;
+      z-index: -1;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -211,8 +192,8 @@
     </script>
   </div>
 
-  <!-- CONTENT WRAPPER -->
-  <div class="content-wrapper animate__animated animate__fadeInUp">
+  <!-- CONTENT WRAPPER FOR VERTICAL CENTERING -->
+  <div class="content-wrapper">
     <!-- POPUP for Terms of Service -->
     <div class="popup-overlay" id="popupOverlay"></div>
     <div class="popup-container animate__animated animate__fadeIn" id="popupContainer">
@@ -227,57 +208,90 @@
       <div class="loading-message">Launching Proxy...</div>
     </div>
 
-    <!-- MAIN CONTENT -->
+    <!-- Header: Updated for Rammerhead -->
     <header class="header animate__animated animate__fadeInDown">
       <img class="logo" src="/images/logo.png" alt="Logo" />
       <h1 class="title">Rammerhead Proxy</h1>
     </header>
 
+    <!-- Main Content: Rammerhead Proxy Interface -->
     <main class="main-content animate__animated animate__fadeInUp">
-      <div class="searchbar">
-        <input id="input" type="text" placeholder="Search or Enter URL" onkeydown="if (event.keyCode === 13) go()" autofocus />
-        <button class="btn" onclick="go()">Go</button>
+      <div class="container mb-5">
+        <p class="mt-3 mb-3 font-weight">Join the <a href="https://discord.gg/VNT4E7gN5Y">Discord server</a> for updates
+          or just chat about life</p>
+        <p class="mb-0 font-weight-bold">Notice: inactive sessions will be deleted after 3 days.</p>
+        <p class="mb-3 font-weight-bold">Notice 2: Treat every session id like an isolated incognito browser that
+          belongs only to you. DO NOT SHARE THE SESSION ID. All logins that you make with the session id will be saved
+          in that session. Anyone that has your session id or session url CAN ACCESS your logged in sites.</p>
+        <p class="mb-3 font-weight-bold text-danger" id="error-text" style="display: none">Error: some text</p>
+        <div class="input-group mb-2" id="password-wrapper" style="display: none">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Enter password</span>
+          </div>
+          <input type="password" class="form-control" id="session-password"
+            placeholder="Password is given by host of this site.">
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Enter URL</span>
+          </div>
+          <input type="text" class="form-control" id="session-url" placeholder="https://www.google.com/">
+          <div class="input-group-append">
+            <button class="btn btn-success" id="session-go">Go!</button>
+          </div>
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Session ID</span>
+          </div>
+          <input readonly type="text" class="form-control disable-text" id="session-id"
+            placeholder="click on 'Create new session ID' or 'Fill in existing session ID' from below">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" id="session-create-btn" type="button">Create new session ID</button>
+          </div>
+        </div>
+        <button class="btn btn-outline-secondary" id="session-advanced-toggle">Show advanced options</button>
+        <div class="mt-2 mb-4" id="session-advanced-container" style="display: none">
+          <div class="form-check mb-1">
+            <input class="form-check-input" type="checkbox" value="" id="session-shuffling" checked>
+            <label class="form-check-label" for="session-shuffling">Enable URL Shuffling</label>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">HTTP Proxy</span>
+            </div>
+            <input type="text" class="form-control" id="session-httpproxy"
+              placeholder="http://username:password@proxyipaddress:proxyport">
+          </div>
+        </div>
       </div>
-      <!-- Styled Agreement Text Under the Search Bar -->
-      <div class="agreement-text">
-        By using Rammerhead Proxy, you agree to our 
-        <a href="/pages/privacy_policy.txt" target="_blank">Privacy Policy</a> 
-        and 
-        <a href="/pages/terms_of_service.txt" target="_blank">TOS</a>!
-      </div>
-
-      <!-- Action Buttons: About and Report an Issue -->
-      <div class="action-buttons">
-        <button onclick="redirectToAbout()">About</button>
-        <button onclick="reportIssue()">Report an Issue</button>
-      </div>
-
-      <!-- Warning Text -->
-      <div class="warning-text">
-        Warning: Rammerhead Proxy is provided as-is. We are not responsible for how you use the proxy or the information you share while using it.
-      </div>
-
-      <!-- Note -->
-      <div class="note-text">
-        Note: This web proxy uses Rammerhead by binary-person. I can't use Ultraviolet because Railway banned it for some reason. It may be a bit slow and act funky at times. My apologies. I'll switch to DigitalOcean when I get enough 💸💸💸.
+      <div class="row justify-content-center m-0">
+        <table class="table w-75 table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Session ID</th>
+              <th>Created on</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </main>
   </div>
 
   <!-- Custom Scripts -->
-  <script src="/scripts/script.js"></script>
-  <!-- Removed side_nav.js -->
-
+  <script src="script.js"></script>
   <!-- DOT-WAVE BACKGROUND SCRIPT -->
   <script>
     let canvas, ctx;
     let time = 0;
     let DOTS_X, DOTS_Y;
-    const SPACING = 50;
-    let AMPLITUDE = 30;
-    let FREQUENCY = 0.2;
-    let SPEED = 0.005;
-    
+    const SPACING = 50;        // distance between dots
+    let AMPLITUDE = 30;        // "height" of the wave
+    let FREQUENCY = 0.2;       // wave frequency
+    let SPEED = 0.005;         // wave speed (lower = slower)
+
     window.addEventListener('load', () => {
       canvas = document.getElementById('dotWaveCanvas');
       ctx = canvas.getContext('2d');
@@ -285,14 +299,14 @@
       window.addEventListener('resize', resizeCanvas);
       requestAnimationFrame(animate);
     });
-    
+
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       DOTS_X = Math.floor(canvas.width / SPACING) + 2;
       DOTS_Y = Math.floor(canvas.height / SPACING) + 2;
     }
-    
+
     function animate() {
       time += SPEED;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -314,22 +328,16 @@
       }
       requestAnimationFrame(animate);
     }
-    
-    // Popup & loading overlay logic
+
     function closePopup() {
       document.getElementById('popupOverlay').style.display = 'none';
       document.getElementById('popupContainer').style.display = 'none';
     }
     function acceptTerms() {
       closePopup();
-      // Additional logic if needed
+      // Additional logic to record acceptance can be added here.
     }
-    function redirectToAbout() {
-      window.location.href = "/pages/about.html";
-    }
-    function reportIssue() {
-      window.open("https://forms.gle/dgQPt8iEbFsAMHan6", "_blank");
-    }
+    // Additional JavaScript for Rammerhead functionality can be added below.
   </script>
 </body>
 </html>
