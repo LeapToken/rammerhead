@@ -4,7 +4,7 @@
   <!-- Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rammerhead Proxy</title>
+  <title>SpectraFlux</title>
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet" />
@@ -18,7 +18,7 @@
   <!-- SpectraFlux CSS (your style.css) -->
   <link rel="stylesheet" href="/style/style.css" />
 
-  <!-- Meta Description, Keywords, etc. -->
+  <!-- Meta tags for SEO etc. -->
   <meta name="description" content="SpectraFlux is a fast and free web proxy designed to bypass censorship and access restricted content securely. No sign-up needed. Just search and go!" />
   <meta name="keywords" content="SpectraFlux, web proxy, free proxy, unblock websites, online proxy, secure browsing, bypass censorship, anonymous browsing, school proxy, fast proxy" />
   <meta name="author" content="SpectraFlux Team" />
@@ -26,14 +26,14 @@
   <meta property="og:description" content="Bypass censorship and browse freely with SpectraFlux. Fast, simple, and secure proxy access — no account required." />
   <meta property="og:image" content="/images/logo.png" />
   <meta property="og:url" content="https://spectraflux.site" />
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="spectraflux_logo.png" />
 
   <!-- Adsense Scripts -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7261666826198019"
      crossorigin="anonymous"></script>
-  <script async src="https://fundingchoicesmessages.google.com/i/pub-7261666826198019?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+  <script async src="https://fundingchoicesmessages.google.com/i/pub-7261666826198019?ers=1"></script>
   <script>
     (function() {
       function signalGooglefcPresent() {
@@ -161,32 +161,41 @@
                  placeholder="http://username:password@proxyipaddress:proxyport">
         </div>
       </div>
-    </div>
 
-    <!-- Table of existing sessions -->
-    <div class="row justify-content-center m-0">
-      <table class="table w-75 table-striped table-bordered">
+      <!-- New "View Sessions" Button -->
+      <button class="btn btn-outline-primary" id="view-sessions-btn">View Sessions</button>
+    </div>
+  </div> <!-- end .content-wrapper -->
+
+  <!-- Sessions Popup -->
+  <div class="popup-overlay" id="sessions-popup-overlay"></div>
+  <div class="popup-container" id="sessions-popup-container">
+    <span class="popup-close" id="sessions-popup-close">&times;</span>
+    <h2>Active Sessions</h2>
+    <div id="sessions-table-container">
+      <table class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>Session ID</th>
             <th>Created on</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="sessions-popup-tbody">
+          <!-- Populated dynamically -->
         </tbody>
       </table>
     </div>
-  </div> <!-- end .content-wrapper -->
+  </div>
 
   <!-- Dot-Wave Background Script -->
   <script>
     let canvas, ctx;
     let time = 0;
-    let DOTS_X, DOTS_Y;
     const SPACING = 50;        // distance between dots
     let AMPLITUDE = 30;        // "height" of the wave
     let FREQUENCY = 0.2;       // wave frequency
-    let SPEED = 0.005;         // wave speed (lower = slower)
+    let SPEED = 0.005;         // wave speed
 
     window.addEventListener('load', () => {
       canvas = document.getElementById('dotWaveCanvas');
@@ -199,15 +208,13 @@
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      // Calculate how many dots we can fit horizontally & vertically
-      DOTS_X = Math.floor(canvas.width / SPACING) + 2;
-      DOTS_Y = Math.floor(canvas.height / SPACING) + 2;
     }
 
     function animate() {
       time += SPEED;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // Draw the wave of dots across the entire canvas
+      const DOTS_X = Math.floor(canvas.width / SPACING) + 2;
+      const DOTS_Y = Math.floor(canvas.height / SPACING) + 2;
       for (let i = 0; i < DOTS_X; i++) {
         for (let j = 0; j < DOTS_Y; j++) {
           const x = i * SPACING;
