@@ -183,52 +183,84 @@
         }
     };
 
+    // Replace your existing renderSessionTable with this version:
     function renderSessionTable(data) {
-        var tbody = document.querySelector('tbody');
-        while (tbody.firstChild && !tbody.firstChild.remove());
+        var tbody = document.getElementById('sessions-popup-tbody');
+        while (tbody.firstChild) {
+            tbody.removeChild(tbody.firstChild);
+        }
         for (var i = 0; i < data.length; i++) {
             var tr = document.createElement('tr');
-            appendIntoTr(data[i].id);
-            appendIntoTr(data[i].createdOn);
-
+    
+            // Session ID cell
+            var tdId = document.createElement('td');
+            tdId.textContent = data[i].id;
+            tr.appendChild(tdId);
+    
+            // Created On cell
+            var tdCreated = document.createElement('td');
+            tdCreated.textContent = data[i].createdOn;
+            tr.appendChild(tdCreated);
+    
+            // Actions cell (Fill and Delete buttons)
+            var tdActions = document.createElement('td');
+    
             var fillInBtn = document.createElement('button');
-            fillInBtn.textContent = 'Fill in existing session ID';
-            fillInBtn.className = 'btn btn-outline-primary';
-            fillInBtn.onclick = index(i, function (idx) {
-                setError();
-                sessionIdsStore.setDefault(data[idx].id);
-                loadSettings(data[idx]);
-            });
-            appendIntoTr(fillInBtn);
-
+            fillInBtn.textContent = 'Fill in';
+            fillInBtn.className = 'btn btn-outline-primary btn-sm';
+            fillInBtn.onclick = (function(idx) {
+                return function() {
+                    setError();
+                    sessionIdsStore.setDefault(data[idx].id);
+                    loadSettings(data[idx]);
+                    hideSessionsPopup();
+                };
+            })(i);
+            tdActions.appendChild(fillInBtn);
+    
             var deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Delete';
-            deleteBtn.className = 'btn btn-outline-danger';
-            deleteBtn.onclick = index(i, function (idx) {
-                setError();
-                api.deletesession(data[idx].id, function () {
-                    data.splice(idx, 1)[0];
-                    sessionIdsStore.set(data);
-                    renderSessionTable(data);
-                });
-            });
-            appendIntoTr(deleteBtn);
-
+            deleteBtn.className = 'btn btn-outline-danger btn-sm ml-2';
+            deleteBtn.onclick = (function(idx) {
+                return function() {
+                    setError();
+                    api.deletesession(data[idx].id, function () {
+                        data.splice(idx, 1)[0];
+                        sessionIdsStore.set(data);
+                        renderSessionTable(data);
+                    });
+                };
+            })(i);
+            tdActions.appendChild(deleteBtn);
+    
+            tr.appendChild(tdActions);
             tbody.appendChild(tr);
         }
-        function appendIntoTr(stuff) {
-            var td = document.createElement('td');
-            if (typeof stuff === 'object') {
-                td.appendChild(stuff);
-            } else {
-                td.textContent = stuff;
-            }
-            tr.appendChild(td);
-        }
-        function index(i, func) {
-            return func.bind(null, i);
-        }
     }
+    
+    // Show popup function
+    function showSessionsPopup() {
+        document.getElementById('sessions-popup-overlay').style.display = 'block';
+        document.getElementById('sessions-popup-container').style.display = 'block';
+    }
+    
+    // Hide popup function
+    function hideSessionsPopup() {
+        document.getElementById('sessions-popup-overlay').style.display = 'none';
+        document.getElementById('sessions-popup-container').style.display = 'none';
+    }
+    
+    // Add event listener for "View Sessions" button and popup close button
+    window.addEventListener('load', function() {
+        document.getElementById('view-sessions-btn').addEventListener('click', function() {
+            // Before showing, reload sessions to update table
+            loadSessions();
+            showSessionsPopup();
+        });
+        document.getElementById('sessions-popup-close').addEventListener('click', hideSessionsPopup);
+        // Also hide popup when clicking the overlay
+        document.getElementById('sessions-popup-overlay').addEventListener('click', hideSessionsPopup);
+    });
     function loadSettings(session) {
         document.getElementById('session-id').value = session.id;
         document.getElementById('session-httpproxy').value = session.httpproxy || '';
