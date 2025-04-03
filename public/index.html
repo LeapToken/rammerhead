@@ -17,14 +17,23 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- SpectraFlux CSS (your style.css) -->
   <link rel="stylesheet" href="/style/style.css" />
+
+  <!-- Meta Description, Keywords, etc. -->
+  <meta name="description" content="SpectraFlux is a fast and free web proxy designed to bypass censorship and access restricted content securely. No sign-up needed. Just search and go!" />
+  <meta name="keywords" content="SpectraFlux, web proxy, free proxy, unblock websites, online proxy, secure browsing, bypass censorship, anonymous browsing, school proxy, fast proxy" />
+  <meta name="author" content="SpectraFlux Team" />
+  <meta property="og:title" content="SpectraFlux – Free Web Proxy" />
+  <meta property="og:description" content="Bypass censorship and browse freely with SpectraFlux. Fast, simple, and secure proxy access — no account required." />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:url" content="https://spectraflux.site" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="spectraflux_logo.png" />
 
   <!-- Adsense Scripts -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7261666826198019"
-          crossorigin="anonymous"></script>
-  <script async src="https://fundingchoicesmessages.google.com/i/pub-7261666826198019?ers=1"></script>
+     crossorigin="anonymous"></script>
+  <script async src="https://fundingchoicesmessages.google.com/i/pub-7261666826198019?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
   <script>
     (function() {
       function signalGooglefcPresent() {
@@ -173,11 +182,11 @@
   <script>
     let canvas, ctx;
     let time = 0;
-    // Adjusted wave settings for a more subtle effect
-    const SPACING = 60;
-    let AMPLITUDE = 15;
-    let FREQUENCY = 0.15;
-    let SPEED = 0.003;
+    let DOTS_X, DOTS_Y;
+    const SPACING = 50;        // distance between dots
+    let AMPLITUDE = 30;        // "height" of the wave
+    let FREQUENCY = 0.2;       // wave frequency
+    let SPEED = 0.005;         // wave speed (lower = slower)
 
     window.addEventListener('load', () => {
       canvas = document.getElementById('dotWaveCanvas');
@@ -190,15 +199,15 @@
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      // Calculate how many dots we can fit horizontally & vertically
+      DOTS_X = Math.floor(canvas.width / SPACING) + 2;
+      DOTS_Y = Math.floor(canvas.height / SPACING) + 2;
     }
 
     function animate() {
       time += SPEED;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const DOTS_X = Math.floor(canvas.width / SPACING) + 2;
-      const DOTS_Y = Math.floor(canvas.height / SPACING) + 2;
-
+      // Draw the wave of dots across the entire canvas
       for (let i = 0; i < DOTS_X; i++) {
         for (let j = 0; j < DOTS_Y; j++) {
           const x = i * SPACING;
@@ -209,7 +218,6 @@
           const radius = 3 * scale;
           const shiftedY = y + wave;
           const colorValue = 150 + Math.round(50 * (wave / AMPLITUDE));
-          
           ctx.beginPath();
           ctx.arc(x, shiftedY, radius, 0, Math.PI * 2);
           ctx.fillStyle = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
