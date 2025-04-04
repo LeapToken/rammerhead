@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About SpectraFlux</title>
+  <link rel="icon" type="image/x-icon" href="./images/logo.png" />
+
+  <!-- Google Fonts (using Poppins for consistency) -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style/style.css" />
+  <!-- (No side_nav.css is loaded) -->
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7261666826198019"
+     crossorigin="anonymous"></script>
+  <script async src="https://fundingchoicesmessages.google.com/i/pub-7261666826198019?ers=1"></script>
+  <script>
+    (function() {
+      function signalGooglefcPresent() {
+        if (!window.frames['googlefcPresent']) {
+          if (document.body) {
+            const iframe = document.createElement('iframe');
+            iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+            iframe.style.display = 'none';
+            iframe.name = 'googlefcPresent';
+            document.body.appendChild(iframe);
+          } else {
+            setTimeout(signalGooglefcPresent, 0);
+          }
+        }
+      }
+      signalGooglefcPresent();
+    })();
+  </script>
+  
+  <style>
+    /* Updated Home Button Styles */
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      font-size: 1.5rem;
+      background: #2196F3;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .home-btn:hover {
+      transform: scale(1.1);
+    }
+    /* "Why use SpectraFlux?" Section */
+    .why-use {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .why-use h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .feature {
+      flex: 1 1 200px;
+      max-width: 300px;
+      background: #f7f7f7;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .feature i {
+      font-size: 2.5rem;
+      color: #2196F3;
+      margin-bottom: 10px;
+    }
+    .feature h3 {
+      margin: 10px 0;
+      font-size: 1.5rem;
+    }
+    .feature p {
+      font-size: 1rem;
+      color: #555;
+    }
+    /* FAQ Section Styles */
+    .faq {
+      margin: 40px 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .faq-item:hover {
+      background: #f7f7f7;
+    }
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      position: relative;
+      padding-right: 30px;
+    }
+    .faq-question:after {
+      content: "\f078"; /* Font Awesome chevron-down */
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-question:after {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 1rem;
+      color: #555;
+      margin-top: 10px;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px; /* adjust as needed */
+    }
+    /* Agreement text styling */
+    .agreement-text {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+    .agreement-text a {
+      color: #2196F3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .agreement-text a:hover {
+      color: #1976d2;
+    }
+    /* Action Buttons Container */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .action-buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #2196F3;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .action-buttons button:hover {
+      background-color: #1976d2;
+      transform: scale(1.05);
+    }
+    /* Warning text styling */
+    .warning-text {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #a00;
+      text-align: center;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- BACKGROUND DOT-WAVE CANVAS -->
+  <div id="background-animation">
+    <canvas id="dotWaveCanvas"></canvas>
+  </div>
+
+  <!-- Home Button -->
+  <button class="home-btn" onclick="goHome()"><i class="fas fa-home"></i></button>
+
+  <!-- CONTENT WRAPPER FOR VERTICAL CENTERING -->
+  <div class="content-wrapper">
+    <!-- HEADER with animated fadeInDown -->
+    <header class="header animate__animated animate__fadeInDown">
+      <img class="logo" src="https://spectraflux.site/images/logo.png" alt="SpectraFlux Logo" />
+      <h1 class="title">About SpectraFlux</h1>
+    </header>
+
+    <!-- MAIN CONTENT with animated fadeInUp -->
+    <main class="main-content animate__animated animate__fadeInUp">
+      <p>
+        SpectraFlux (formerly RandomWeb) is a free web proxy built on Corrosion by Titanium Network that allows you to bypass censorship and access blocked content. With its clean, user-friendly interface, SpectraFlux offers a fast, secure, and private browsing experience.
+      </p>
+
+      <!-- Agreement text -->
+      <div class="agreement-text">
+        By using SpectraFlux, you agree to our <a href="/pages/privacy_policy.txt" target="_blank">Privacy Policy</a> and <a href="/pages/terms_of_service.txt" target="_blank">TOS</a>.
+      </div>
+
+      <!-- "Why use SpectraFlux?" Section -->
+      <section class="why-use">
+        <h2>Why use SpectraFlux?</h2>
+        <div class="features">
+          <div class="feature animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+            <i class="fas fa-lock"></i>
+            <h3>Privacy</h3>
+            <p>Your IP is masked by our proxy, ensuring that target sites see only our server’s address.</p>
+          </div>
+          <div class="feature animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+            <i class="fas fa-globe"></i>
+            <h3>Access</h3>
+            <p>Bypass network restrictions and access content that might otherwise be blocked.</p>
+          </div>
+          <div class="feature animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+            <i class="fas fa-bolt"></i>
+            <h3>Speed</h3>
+            <p>Experience fast and reliable browsing with optimized proxy performance. (Jk, it's slow asf. I need to upgrade servers)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <div class="faq-question">How does SpectraFlux work?</div>
+          <div class="faq-answer">
+            SpectraFlux acts as an intermediary between your device and the internet. When you request a website through Corrosion, the proxy forwards your request to the target site, retrieves its content, and sends it back to you. This allows you to bypass network restrictions and access blocked content.
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <div class="faq-question">Is it encrypted?</div>
+          <div class="faq-answer">
+            Your connection to SpectraFlux is encrypted. When you access HTTPS websites, the data between the proxy and the target site is also encrypted, ensuring secure transmission.
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <div class="faq-question">Does it hide my IP address from the target site?</div>
+          <div class="faq-answer">
+            Yes, when you use SpectraFlux the target site sees our proxy server’s IP address instead of yours, providing you with a level of anonymity.
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <div class="faq-question">Can I access Netflix, YouTube, etc.?</div>
+          <div class="faq-answer">
+            While platforms like YouTube generally work with SpectraFlux, streaming services such as Netflix actively block proxy servers to enforce regional restrictions. You may encounter issues accessing Netflix.
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <div class="faq-question">Will it work on my phone, school Wi-Fi, or in my country?</div>
+          <div class="faq-answer">
+            SpectraFlux works on desktops and mobile devices via modern web browsers. However, network restrictions (such as on some school Wi-Fi networks) may sometimes block proxy traffic. In Canada, where there are minimal restrictions, it should work reliably.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script>
+    // Home button functionality
+    function goHome() {
+      window.location.href = "https://spectraflux.site/";
+    }
+
+    // FAQ accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        item.addEventListener('click', function() {
+          this.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+
+  <!-- DOT-WAVE BACKGROUND SCRIPT -->
+  <script>
+    let canvas, ctx;
+    let time = 0;
+    let DOTS_X, DOTS_Y;
+    const SPACING = 50;
+    let AMPLITUDE = 30;
+    let FREQUENCY = 0.2;
+    let SPEED = 0.005;
+
+    window.addEventListener('load', () => {
+      canvas = document.getElementById('dotWaveCanvas');
+      ctx = canvas.getContext('2d');
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      requestAnimationFrame(animate);
+    });
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      DOTS_X = Math.floor(canvas.width / SPACING) + 2;
+      DOTS_Y = Math.floor(canvas.height / SPACING) + 2;
+    }
+
+    function animate() {
+      time += SPEED;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < DOTS_X; i++) {
+        for (let j = 0; j < DOTS_Y; j++) {
+          const x = i * SPACING;
+          const y = j * SPACING;
+          const wave = Math.sin((i + time) * FREQUENCY) * AMPLITUDE +
+                       Math.cos((j + time) * FREQUENCY) * AMPLITUDE;
+          const scale = 1 + wave / (AMPLITUDE * 2);
+          const radius = 3 * scale;
+          const shiftedY = y + wave;
+          const colorValue = 150 + Math.round(50 * (wave / AMPLITUDE));
+          ctx.beginPath();
+          ctx.arc(x, shiftedY, radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+          ctx.fill();
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+  </script>
+</body>
+</html>
