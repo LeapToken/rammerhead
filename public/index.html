@@ -211,5 +211,33 @@
       requestAnimationFrame(animate);
     }
   </script>
+  
+  <!-- Popup Event Handlers -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const viewSessionsBtn = document.getElementById("view-sessions-btn");
+      const sessionsPopupOverlay = document.getElementById("sessions-popup-overlay");
+      const sessionsPopupContainer = document.getElementById("sessions-popup-container");
+      const sessionsPopupClose = document.getElementById("sessions-popup-close");
+
+      function showSessionsPopup() {
+        sessionsPopupOverlay.style.display = "block";
+        sessionsPopupContainer.style.display = "block";
+        // Optionally call loadSessions() here to refresh the table
+        if (typeof loadSessions === "function") {
+          loadSessions();
+        }
+      }
+
+      function hideSessionsPopup() {
+        sessionsPopupOverlay.style.display = "none";
+        sessionsPopupContainer.style.display = "none";
+      }
+
+      viewSessionsBtn.addEventListener("click", showSessionsPopup);
+      sessionsPopupClose.addEventListener("click", hideSessionsPopup);
+      sessionsPopupOverlay.addEventListener("click", hideSessionsPopup);
+    });
+  </script>
 </body>
 </html>
