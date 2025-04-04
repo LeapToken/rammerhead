@@ -1,0 +1,52 @@
+🔒 Privacy Policy
+Effective Date: March 20, 2025
+Last Updated: March 20, 2025
+
+This Privacy Policy outlines how SpectraFlux ("we," "us," or "our") collects, uses, discloses, and protects information gathered through the SpectraFlux web proxy service.
+
+1. Information We Collect
+When you use SpectraFlux, we automatically collect certain data, including:
+
+IP Address: Used to identify your device and approximate geographic region.
+Visited URLs: The websites you access through the proxy.
+User-Agent String: The browser and device information sent by your client.
+We do not collect personal identifiers such as names, email addresses, or account credentials, as the service does not require user registration.
+
+2. Use of Information
+The collected data is used for the following purposes:
+
+To operate, maintain, and improve the Service;
+To monitor usage and prevent abuse;
+To serve contextual advertisements;
+To comply with legal obligations.
+3. Data Retention
+We retain access logs, including IP addresses and visited URLs, for a limited time necessary for operational and legal purposes. This retention period may vary depending on applicable regulations and internal policies.
+
+4. Cookies and Tracking Technologies
+SpectraFlux may use cookies and similar technologies to enhance the user experience, measure traffic patterns, and serve advertisements. Third-party services, such as Google AdSense, may also deploy cookies as part of their ad delivery and analytics processes.
+
+5. Disclosure to Third Parties
+We do not sell, trade, or otherwise transfer your personal information to outside parties, except in the following cases:
+
+When required by law, regulation, or legal process;
+To enforce our Terms of Service;
+To protect the safety and security of our service and users;
+To third-party services (e.g., Cloudflare, Google AdSense) strictly for functional or advertising purposes.
+6. Data Security
+We implement reasonable administrative, technical, and physical safeguards to protect the information we collect. However, no method of transmission or storage is 100% secure, and we cannot guarantee absolute security.
+
+7. Third-Party Services
+SpectraFlux uses third-party services including but not limited to:
+
+Cloudflare – for infrastructure security and performance optimization;
+Google AdSense – for ad placement and monetization.
+These services may collect data independently, and their use of information is governed by their own privacy policies.
+
+8. International Users
+By using the Service, you acknowledge and agree that your information may be transferred to, processed, and maintained on servers located outside of your country or jurisdiction.
+
+9. Children's Privacy
+SpectraFlux is not directed at individuals under the age of thirteen (13). We do not knowingly collect or solicit personal information from minors. If we become aware that we have inadvertently collected information from a minor, we will take steps to delete such information.
+
+10. Changes to this Privacy Policy
+We reserve the right to update or modify this Privacy Policy at any time. The revised version will be posted on this page with the effective date updated accordingly.
